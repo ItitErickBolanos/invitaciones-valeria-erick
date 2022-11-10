@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import BannerCountdown from './BannerCountdown';
 import FormularioConfirmacion from './FormularioConfirmacion';
 import Hoteles from './Hoteles';
-import Locacion from './Locacion';
+import LocacionList from './LocacionList';
 import MesaRegalos from './MesaRegalos';
 import Timeline from './Timeline';
 import { ref, onValue } from "firebase/database";
+import './InvitadoPage.css';
+import Introduccion from './Introduccion';
 
 const InvitadoPage = (props) => {
     const idInvitado = props.match.params.id;
@@ -22,14 +24,15 @@ const InvitadoPage = (props) => {
     }, [idInvitado, props.database]);
 
     return (
-        <>
+        <div className="invitado-container">
             <BannerCountdown />
-            <Locacion />
+            <Introduccion />
+            <LocacionList />
             <Hoteles />
             <Timeline />
             <MesaRegalos />
             <FormularioConfirmacion datosInvitado={datosInvitado}/>
-        </>
+        </div>
     );
 };
 

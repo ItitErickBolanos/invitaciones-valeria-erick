@@ -1,0 +1,57 @@
+.banner-countdown {
+    background-image: url('../images/banner.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-boda {
+    margin-top: 84px;
+    background-image: linear-gradient(180deg, #A48824 0%, #D1B861 54.69%, #937713 100%);
+    background-clip: text;
+    color: transparent;
+    font-size: 84px;
+    line-height: 80px;
+    font-family: 'Triforce', sans-serif;
+}
+
+.logo-boda {
+    margin-top: 128px;
+}
+
+.fecha-boda {
+    margin-top: 52px;
+    color: #FFFFFF;
+    font-size: 36px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 12px rgba(0, 0, 0, 0.4);
+    font-family: 'Chapman';
+    font-style: normal;
+}
+
+.countdown-container {
+    margin-top: 34px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 9px;
+    width: 691px;
+    height: 125px;
+    padding: 12px;
+    text-align: center;
+}
+
+.display-divider {
+    font-size: 48px;
+    line-height: 58px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin-left: 9px;
+    margin-right: 9px;
+}

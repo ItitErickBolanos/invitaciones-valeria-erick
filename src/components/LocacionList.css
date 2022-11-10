@@ -1,0 +1,23 @@
+.locacion-list-container {
+    background: linear-gradient(112.55deg, #174A21 18.16%, #083310 95.94%);
+    padding: 89px 386px 117px 386px;
+    text-align: center;
+}
+
+.locacion-list-title {
+    margin-bottom: 54px;
+}
+
+.locaciones-container {
+    display: flex;
+    gap: 180px;
+}
+
+.locacion-list-title {
+    font-family: 'Chapman';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FFFFFF;
+}

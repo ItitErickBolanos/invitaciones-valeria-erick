@@ -1,0 +1,18 @@
+.boton {
+    width: 135px;
+    height: 47px;
+    background: #CFB14A;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    font-family: 'Triforce';
+    font-size: 28px;
+    line-height: 27px;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-mapa {
+    color: #174A21;
+}
+

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './DIsplayFechaHora.css';
 
 const DisplayFechaHora = ({ type, value }) => {
     return (
-        <div className="displayFechaHora">
-            <p>{value}</p>
-            <span>{type}</span>
+        <div className="display-fecha-hora">
+            <div className="valor">{value}</div>
+            <div className='tipo'>{type}</div>
         </div>
     );
 };

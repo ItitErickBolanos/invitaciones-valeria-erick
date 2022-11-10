@@ -1,0 +1,21 @@
+.display-fecha-hora {
+    width: 130px;
+    height: 101px;
+}
+
+.valor {
+    font-size: 48px;
+    line-height: 46px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    font-family: 'Triforce', sans-serif;
+}
+
+.tipo {
+    margin-top: 21px;
+    font-size: 36px;
+    line-height: 34px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    font-family: 'Triforce', sans-serif;
+}
