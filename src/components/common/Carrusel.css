@@ -1,0 +1,21 @@
+.carrusel-container {
+    display: flex;
+}
+
+.elementos {
+    width: 100%;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.flecha {
+    cursor: pointer;
+}
+
+.flechas-container {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+}

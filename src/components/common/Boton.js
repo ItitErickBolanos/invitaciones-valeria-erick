@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Boton.css';
 
-const Boton = ({ texto, tipo, onClickHandle }) => {
+const Boton = ({ texto, onClickHandle }) => {
     return (
-        <button className={`boton boton-${tipo}`} onClick={onClickHandle}>{texto}</button>
+        <button className="boton" onClick={onClickHandle}>{texto}</button>
     );
 };
 

@@ -1,0 +1,77 @@
+.mesa-container {
+    margin-top: 72px;
+    margin-bottom: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mesa-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mesa-title {
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #174A21;
+    margin-bottom: 36px;
+}
+
+.mesa-codigo {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 84px;
+    flex: 1;
+}
+
+.codigo-texto {
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #174A21;
+}
+
+.texto-rosa {
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #D14681;
+}
+
+.mesa-texto {
+    margin-top: 84px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #174A21;
+}
+
+.logos-container {
+    margin-top: 36px;
+    display: flex;
+    gap: 180px;
+}
+
+.separador {
+    margin-bottom: 18px;
+}
+
+.mesa-efectivo {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}

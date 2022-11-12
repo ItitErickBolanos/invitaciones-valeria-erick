@@ -1,0 +1,25 @@
+.non-active {
+    opacity: 0.6;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-nombre {
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #F4F0E7;
+}
+
+.timeline-fecha {
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #CFB14A;
+}

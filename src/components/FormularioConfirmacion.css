@@ -1,0 +1,101 @@
+.formulario-container {
+    background: linear-gradient(112.55deg, #174A21 18.16%, #083310 95.94%);
+    padding: 80px 286px;
+}
+
+.confirmacion-container {
+    padding: 48px;
+    background: #F4F0E7;
+    border: 1px solid #CFB14A;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmacion-title {
+    font-family: 'Triforce';
+    font-size: 36px;
+    line-height: 40px;
+    color: #937713;
+}
+
+.datos-invitado {
+    margin-top: 48px;
+}
+
+.nombre-invitado {
+    font-family: 'Chapman';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: #174A21;
+}
+
+.texto-verde {
+    font-family: 'Chapman';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: #2F833A;
+}
+
+.fecha-confirmacion {
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: #174A21;
+    margin-top: 48px;
+}
+
+.preguntas-container {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.radio-container {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.radio {
+    flex: 1;
+}
+
+#numeroAsiste {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background: #FFFFFF;
+    border: 1px solid #CFB14A;
+    border-radius: 6px;
+    color: #808080;
+    padding: 8px 10px;
+    width: 120px;
+    text-align: center;
+}
+
+#mensaje {
+    margin-top: 12px;
+    width: 778px;
+    height: 110px;
+    background: #FFFFFF;
+    border: 1px solid #CFB14A;
+    border-radius: 6px;
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 8px 10px;
+}
+
+#asistencia {
+    border: 1px solid #CFB14A;
+    background: #2F833A;
+}

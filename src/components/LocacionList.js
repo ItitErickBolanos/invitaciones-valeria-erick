@@ -12,14 +12,14 @@ const LocacionList = () => {
                     titulo={'Catedral de Tampico'} 
                     direccion={'Emilio Carranza 101, Zona Centro, 89000 Tampico, Tamps.'} 
                     hora={'6:00 PM'} 
-                    urlMapa={''}
+                    urlMapa={'https://goo.gl/maps/hQZupJsPW4eMwLeg9'}
                 />
                 <Locacion 
                     tipo={'recepcion'} 
                     titulo={'Antiguo Casino Salon'} 
                     direccion={'Fray Andrés de Olmos 103, Zona Centro, 89000 Tampico, Tamps'} 
                     hora={'7:00 PM'} 
-                    urlMapa={''}
+                    urlMapa={'https://goo.gl/maps/uKPrqhUoFT9pbnhy8'}
                 />
             </div>
         </div>

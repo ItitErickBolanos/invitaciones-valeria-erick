@@ -18,7 +18,7 @@ const Locacion = ({ tipo, titulo, direccion, hora, urlMapa}) => {
             <div className="locacion-title">{titulo}</div>
             <div className="direccion">{direccion}</div>
             <div className="hora">{hora}</div>
-            <Boton texto={'Ver mapa'} tipo={'mapa'} onClickHandle={botonClick}/>
+            <Boton texto={'Ver mapa'} onClickHandle={botonClick}/>
         </div>
     );
 };

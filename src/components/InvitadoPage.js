@@ -8,6 +8,8 @@ import Timeline from './Timeline';
 import { ref, onValue } from "firebase/database";
 import './InvitadoPage.css';
 import Introduccion from './Introduccion';
+import Recuerdos from './Recuerdos';
+import BannerFooter from './BannerFooter';
 
 const InvitadoPage = (props) => {
     const idInvitado = props.match.params.id;
@@ -29,9 +31,11 @@ const InvitadoPage = (props) => {
             <Introduccion />
             <LocacionList />
             <Hoteles />
+            <Recuerdos />
             <Timeline />
             <MesaRegalos />
             <FormularioConfirmacion datosInvitado={datosInvitado}/>
+            <BannerFooter />
         </div>
     );
 };

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Introduccion.css';
 import logoZelda from '../images/logo-zelda.svg';
-import heart from '../images/heart.svg';
+import zelda from '../images/zelda.svg';
+import link from '../images/link.svg';
 import knife from '../images/knife.svg';
 
 const Introduccion = () => {
@@ -29,12 +30,12 @@ const Introduccion = () => {
                     </div>
                     <div className="papas-container">
                         <div className="papas">
-                            <img src={heart} className="heart-icon" alt="heart-icon"/>
+                            <img src={zelda} className="heart-icon" alt="heart-icon"/>
                             <span>Maria Luisa Betancourt Juárez</span>
                             <span onClick={clickKnife}>{showKnife && <img src={knife} alt="knife" width="24px" height="24px"/>}José Sánchez Rubio</span>
                         </div>
                         <div className="papas">
-                            <img src={heart} className="heart-icon" alt="heart-icon"/>
+                            <img src={link} className="heart-icon" alt="heart-icon"/>
                             <span>Rocío Rubio Ruvalcaba</span>
                             <span>Federico Bolaños Turrubiates</span>
                         </div>
