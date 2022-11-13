@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './FormularioConfirmacion.css';
 import Boton from './common/Boton';
@@ -6,6 +6,23 @@ import Boton from './common/Boton';
 const FormularioConfirmacion = ({ datosInvitado }) => {
 
     const invitadosArr = [...Array(datosInvitado.numeroInvitados).keys()].map(n => ++n);
+    const [ formValid, setFormValid ] = useState(true);
+
+    const handleRadioChange = (event) => {
+        console.log(event);
+    };
+
+    const handleSelectChange = (event) => {
+        console.log(event);
+    }
+
+    const handleTextChange = (event) => {
+        console.log(event);
+    };
+
+    const handleSubmit = (event) => {
+        console.log(event);
+    }
 
     return (
         <div className="formulario-container">
@@ -22,24 +39,24 @@ const FormularioConfirmacion = ({ datosInvitado }) => {
                     <div className="texto-verde">¿Podrás asistir?</div>
                     <div className="radio-container">
                         <div className="radio">
-                            <input type="radio" name="asistencia" value="true" checked/><label htmlFor="asistencia" className="texto-verde">Si, asistiré</label>
+                            <input type="radio" name="asistencia" value="true" onChange={(event) => { handleRadioChange(event) }}/><label htmlFor="asistencia" className="texto-verde">Si, asistiré</label>
                         </div>
                         <div className="radio">
-                            <input type="radio" name="asistencia" value="false"/><label htmlFor="asistencia" className="texto-verde">Lo siento, no podré asistir :c</label>
+                            <input type="radio" name="asistencia" value="false" onChange={(event) => { handleRadioChange(event) }}/><label htmlFor="asistencia" className="texto-verde">Lo siento, no podré asistir :c</label>
                         </div>
                     </div>
                     {datosInvitado.numeroInvitados > 1 && (<div className="select-container">
                         <div className="texto-verde">¿Cuántas personas asistirán?</div>
-                        <select id="numeroAsiste" value="1">
-                            {invitadosArr.map(invitado => (<option>{invitado}</option>))}
+                        <select id="numeroAsiste" value="1" onChange={(event) => { handleSelectChange(event); }}>
+                            {invitadosArr.map(invitado => (<option key={invitado}>{invitado}</option>))}
                         </select>
                     </div>)}
                     <div className="mensaje-container">
                         <div className="texto-verde">Puedes dejarnos un mensaje</div>
-                        <textarea id="mensaje" placeholder="Deja aquí tu mensaje..."></textarea>
+                        <textarea id="mensaje" placeholder="Deja aquí tu mensaje..." onChange={handleTextChange}></textarea>
                     </div>
                 </div>
-                <Boton texto="Enviar"/>
+                <Boton texto="Enviar" disabled={formValid} onClickHandle={handleSubmit}/>
             </form>
         </div>
     );

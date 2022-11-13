@@ -41,7 +41,7 @@ const Introduccion = () => {
                         </div>
                     </div>
                     <div className="footer">
-                        Uniremos nuestras vidas por el sacramento del Matrimonio <br/>y tenemos el honor<br/> de invitarte a ser parte de esta celebración
+                        Uniremos nuestras vidas por el sacramento del Matrimonio <br/>y tenemos el honor<br/> de invitarte a ser parte de esta celebracion
                     </div>
                 </div>
             </div>
