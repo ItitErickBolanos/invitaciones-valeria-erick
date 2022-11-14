@@ -1,5 +1,7 @@
 .carrusel-container {
     display: flex;
+    gap: 28px;
+    align-items: center;
 }
 
 .elementos {
@@ -18,4 +20,11 @@
     justify-content: center;
     gap: 24px;
     margin-top: 24px;
+}
+
+@media only screen and (min-width: 0) and (max-width: 743px) {
+    .flecha {
+        width: 32px;
+        height: 32px;
+    }
 }

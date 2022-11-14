@@ -1,28 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './FormularioConfirmacion.css';
 import Boton from './common/Boton';
+import useForm from '../hooks/useForm';
 
-const FormularioConfirmacion = ({ datosInvitado }) => {
+const FormularioConfirmacion = ({ datosInvitado, onConfirmacion }) => {
 
     const invitadosArr = [...Array(datosInvitado.numeroInvitados).keys()].map(n => ++n);
-    const [ formValid, setFormValid ] = useState(true);
-
-    const handleRadioChange = (event) => {
-        console.log(event);
-    };
-
-    const handleSelectChange = (event) => {
-        console.log(event);
-    }
-
-    const handleTextChange = (event) => {
-        console.log(event);
-    };
-
-    const handleSubmit = (event) => {
-        console.log(event);
-    }
+    const initialState = {asistencia: '', numeroAsiste: 1, mensaje: ''};
+    const validations = [
+        ({asistencia}) => isRequired(asistencia) || {asistencia: 'Por favor confirma si puedes asistir.'},
+    ];
+    const {values, isValid, errors, changeHandler, onSubmit} = useForm(initialState, validations, onConfirmacion);
 
     return (
         <div className="formulario-container">
@@ -39,31 +28,36 @@ const FormularioConfirmacion = ({ datosInvitado }) => {
                     <div className="texto-verde">¿Podrás asistir?</div>
                     <div className="radio-container">
                         <div className="radio">
-                            <input type="radio" name="asistencia" value="true" onChange={(event) => { handleRadioChange(event) }}/><label htmlFor="asistencia" className="texto-verde">Si, asistiré</label>
+                            <input type="radio" name="asistencia" value="si" checked={values.asistencia === "si"} onChange={changeHandler}/><label htmlFor="asistencia" className="texto-verde">Si, asistiré</label>
                         </div>
                         <div className="radio">
-                            <input type="radio" name="asistencia" value="false" onChange={(event) => { handleRadioChange(event) }}/><label htmlFor="asistencia" className="texto-verde">Lo siento, no podré asistir :c</label>
+                            <input type="radio" name="asistencia" value="no" checked={values.asistencia === "no"} onChange={changeHandler}/><label htmlFor="asistencia" className="texto-verde">Lo siento, no podré asistir :c</label>
                         </div>
                     </div>
                     {datosInvitado.numeroInvitados > 1 && (<div className="select-container">
                         <div className="texto-verde">¿Cuántas personas asistirán?</div>
-                        <select id="numeroAsiste" value="1" onChange={(event) => { handleSelectChange(event); }}>
+                        <select id="numeroAsiste" name="numeroAsiste" value={values.numeroAsiste} onChange={changeHandler} disabled={values.asistencia === 'no' || values.asistencia === ''}>
                             {invitadosArr.map(invitado => (<option key={invitado}>{invitado}</option>))}
                         </select>
                     </div>)}
                     <div className="mensaje-container">
                         <div className="texto-verde">Puedes dejarnos un mensaje</div>
-                        <textarea id="mensaje" placeholder="Deja aquí tu mensaje..." onChange={handleTextChange}></textarea>
+                        <textarea id="mensaje" name="mensaje" placeholder="Deja aquí tu mensaje..." value={values.mensaje} onChange={changeHandler}></textarea>
                     </div>
                 </div>
-                <Boton texto="Enviar" disabled={formValid} onClickHandle={handleSubmit}/>
+                <Boton texto="Enviar" disabled={!isValid} onClickHandle={onSubmit}/>
             </form>
         </div>
     );
 };
 
 FormularioConfirmacion.propTypes = {
-    datosInvitado: PropTypes.object.isRequired
+    datosInvitado: PropTypes.object.isRequired,
+    onConfirmacion: PropTypes.func.isRequired
 };
+
+const isRequired = (value) => {
+    return value != null && value !== '';
+}
 
 export default FormularioConfirmacion;

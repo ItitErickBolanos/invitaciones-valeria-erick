@@ -13,7 +13,7 @@ const Locacion = ({ tipo, titulo, direccion, hora, urlMapa}) => {
 
     return (
         <div className="locacion-container">
-            <img className={`imagen-${tipo}`} src={tipo === 'ceremonia' ? ceremonia : recepcion} alt={tipo} />
+            <img className={`imagen imagen-${tipo}`} src={tipo === 'ceremonia' ? ceremonia : recepcion} alt={tipo} />
             <div className="type">{tipo}</div>
             <div className="locacion-title">{titulo}</div>
             <div className="direccion">{direccion}</div>

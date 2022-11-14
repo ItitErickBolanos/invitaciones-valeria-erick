@@ -5,7 +5,7 @@ import Hoteles from './Hoteles';
 import LocacionList from './LocacionList';
 import MesaRegalos from './MesaRegalos';
 import Timeline from './Timeline';
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, update } from "firebase/database";
 import './InvitadoPage.css';
 import Introduccion from './Introduccion';
 import Recuerdos from './Recuerdos';
@@ -25,6 +25,17 @@ const InvitadoPage = (props) => {
         });
     }, [idInvitado, props.database]);
 
+    const onConfirmacion = (values) => {
+        update(ref(props.database, `/invitados/${idInvitado}`), {
+            confirmado: values.asistencia === 'si',
+            invitadosConfirmados: values.asistencia === 'si' ? values.numeroAsiste : 0,
+            mensaje: values.mensaje,
+            fechaConfirmacion: new Date().toUTCString()
+        }).then(response => {
+            console.log(response);
+        });
+    };
+
     return (
         <div className="invitado-container">
             <BannerCountdown />
@@ -34,7 +45,7 @@ const InvitadoPage = (props) => {
             <Recuerdos />
             <Timeline />
             <MesaRegalos />
-            <FormularioConfirmacion datosInvitado={datosInvitado}/>
+            <FormularioConfirmacion datosInvitado={datosInvitado} onConfirmacion={onConfirmacion}/>
             <BannerFooter />
         </div>
     );

@@ -13,8 +13,10 @@ import bodaCivil from '../images/boda-civil.svg';
 import bodaReligiosa from '../images/boda-religiosa.svg';
 import heartIcon from '../images/heart-icon.svg';
 import './Timeline.css';
+import useWindowSize from '../hooks/useWindowSize';
 
 const Timeline = () => {
+    const [ x ] = useWindowSize();
     const elementos = [
         { nombre: 'Boda Civil', icono: bodaCivil, fecha: '16 Jul 22', prev: 9, next: 1 },
         { nombre: 'Boda Religiosa', icono: bodaReligiosa, fecha: '17 Dic 22', prev: 0, next: 2 },
@@ -32,10 +34,10 @@ const Timeline = () => {
         <div className="timeline-container">
             <div className="timeline-title"><img src={heartIcon} alt="heart" />Nuestra Historia<img src={heartIcon} alt="heart" /></div>
             <div className="timeline-carrusel">
-                <Carrusel tipo={'timeline'} elementos={elementos} elementosMostrados={5} >
+                <Carrusel tipo={'timeline'} elementos={elementos} elementosMostrados={x > 1439 ? 5 : 1} >
                     { elementos.map(
                         (elemento, index) => {
-                            const middleElement = Math.floor(5 / 2);
+                            const middleElement = Math.floor((x > 1439 ? 5 : 1) / 2);
 
                             return (
                                 <TimelineItem 

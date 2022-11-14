@@ -16,8 +16,6 @@
 
 .carrusel {
     margin-top: 48px;
-    width: 1420px;
-    height: 600px;
 }
 
 .recuerdos-footer {
@@ -28,9 +26,15 @@
     line-height: 22px;
     text-align: center;
     color: #937713;
-    width: 412px;
 }
 
 .hashtag {
     color: #D14681;
+}
+
+@media only screen and (min-width: 0) and (max-width: 743px) {
+    .imagen-recuerdo {
+        width: 250px;
+        height: 376px;
+    }
 }

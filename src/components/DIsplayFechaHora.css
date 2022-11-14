@@ -19,3 +19,13 @@
     color: #FFFFFF;
     font-family: 'Triforce', sans-serif;
 }
+
+@media only screen and (min-width: 0) and (max-width: 743px) {
+    .valor {
+        font-size: 32px;
+    }
+
+    .tipo {
+        font-size: 18px;
+    }
+}

@@ -1,7 +1,10 @@
 .locacion-list-container {
     background: linear-gradient(112.55deg, #174A21 18.16%, #083310 95.94%);
-    padding: 89px 386px 117px 386px;
+    padding: 89px 0 117px 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .locacion-list-title {
@@ -11,6 +14,13 @@
 .locaciones-container {
     display: flex;
     gap: 180px;
+}
+
+@media only screen and (min-width: 0) and (max-width: 1439px) {
+    .locaciones-container {
+        flex-direction: column;
+        gap: 48px;
+    }
 }
 
 .locacion-list-title {

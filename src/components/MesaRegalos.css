@@ -75,3 +75,18 @@
     gap: 18px;
     align-items: center;
 }
+
+
+@media only screen and (min-width: 0) and (max-width: 1023px) {
+    .logos-container {
+        flex-direction: column;
+        gap: 48px;
+    }
+}
+
+@media only screen and (min-width: 0) and (max-width: 743px) {
+    .mesa-codigo {
+        flex-direction: column;
+        gap: 48px;
+    }
+}

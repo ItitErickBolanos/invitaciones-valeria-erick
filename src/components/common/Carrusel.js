@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import flechaIzquierda from '../../images/flecha-izquierda.svg';
 import flechaDerecha from '../../images/flecha-derecha.svg';
@@ -29,6 +29,10 @@ const Carrusel = ({
             }
         });
     };
+
+    useEffect(() => {
+        setElementosActuales(children.slice(0, elementosMostrados));
+    }, [elementosMostrados, children])
 
     return (
         <>

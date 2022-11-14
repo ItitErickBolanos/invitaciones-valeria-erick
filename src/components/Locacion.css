@@ -42,3 +42,10 @@
     line-height: 27px;
     margin-bottom: 24px;
 }
+
+@media only screen and (min-width: 0) and (max-width: 743px) {
+    .imagen {
+        width: 342px;
+        height: 250px;
+    }
+}

@@ -8,8 +8,10 @@ import img4 from '../images/IMG_4.png';
 import img5 from '../images/IMG_5.png';
 import img6 from '../images/IMG_6.png';
 import img7 from '../images/IMG_7.png';
+import useWindowSize from '../hooks/useWindowSize';
 
 const Recuerdos = () => {
+    const [ x ] = useWindowSize();
     const elementos = [
         { url: img1, nombre: 'IMG_1', next: 1, prev: 6},
         { url: img2, nombre: 'IMG_2', next: 2, prev: 0},
@@ -24,8 +26,8 @@ const Recuerdos = () => {
         <div className="recuerdos-container">
             <div className="titulo-recuerdos">Nuestros Recuerdos</div>
             <div className="carrusel">
-                <Carrusel tipo={'fotos'} elementos={elementos} elementosMostrados={3} >
-                    { elementos.map(elemento => (<img src={elemento.url} alt={elemento.nombre} className="" key={elemento.nombre} />)) }
+                <Carrusel tipo={'fotos'} elementos={elementos} elementosMostrados={x > 1439 ? 3 : 1} >
+                    { elementos.map(elemento => (<img src={elemento.url} alt={elemento.nombre} className="imagen-recuerdo" key={elemento.nombre} />)) }
                 </Carrusel>
             </div>
             <div className="recuerdos-footer">
