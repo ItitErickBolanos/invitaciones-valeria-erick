@@ -10,11 +10,16 @@ import './InvitadoPage.css';
 import Introduccion from './Introduccion';
 import Recuerdos from './Recuerdos';
 import BannerFooter from './BannerFooter';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import zelda from '../images/zelda.svg';
+import link from '../images/link.svg';
+import Boton from './common/Boton';
 
 const InvitadoPage = (props) => {
     const idInvitado = props.match.params.id;
 
     const [ datosInvitado, setDatosInvitado ] = useState({});
+    const [ open, setOpen ] = useState(false);
 
     //Here we make use of useEffect to load the invitado data
     useEffect(() => {
@@ -32,9 +37,17 @@ const InvitadoPage = (props) => {
             mensaje: values.mensaje,
             fechaConfirmacion: new Date().toUTCString()
         }).then(response => {
-            console.log(response);
+            hanldeOpen();
         });
     };
+    
+    const hanldeOpen = () => {
+        setOpen(true);
+    }
+
+    const handleClose = () => {
+        setOpen(false);
+    }
 
     return (
         <div className="invitado-container">
@@ -47,6 +60,27 @@ const InvitadoPage = (props) => {
             <MesaRegalos />
             <FormularioConfirmacion datosInvitado={datosInvitado} onConfirmacion={onConfirmacion}/>
             <BannerFooter />
+
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+                id="alert-dialog"
+            >
+                <DialogTitle id="alert-dialog-title">
+                    <img src={zelda} alt="zelda"/>
+                    <img src={link} alt="zelda"/>
+                </DialogTitle>
+                <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                    ¡Gracias por confirmar!
+                </DialogContentText>
+                </DialogContent>
+                <DialogActions id="alert-dialog-actions">
+                    <Boton texto='Cerrar' onClickHandle={handleClose}/>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 };

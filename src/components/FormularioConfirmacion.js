@@ -7,11 +7,12 @@ import useForm from '../hooks/useForm';
 const FormularioConfirmacion = ({ datosInvitado, onConfirmacion }) => {
 
     const invitadosArr = [...Array(datosInvitado.numeroInvitados).keys()].map(n => ++n);
-    const initialState = {asistencia: '', numeroAsiste: 1, mensaje: ''};
+    const initialState = { asistencia: datosInvitado.confirmado ? 'si' : '', numeroAsiste: datosInvitado.invitadosConfirmados, mensaje: datosInvitado.mensaje };
     const validations = [
         ({asistencia}) => isRequired(asistencia) || {asistencia: 'Por favor confirma si puedes asistir.'},
     ];
     const {values, isValid, errors, changeHandler, onSubmit} = useForm(initialState, validations, onConfirmacion);
+
 
     return (
         <div className="formulario-container">
@@ -28,10 +29,10 @@ const FormularioConfirmacion = ({ datosInvitado, onConfirmacion }) => {
                     <div className="texto-verde">¿Podrás asistir?</div>
                     <div className="radio-container">
                         <div className="radio">
-                            <input type="radio" name="asistencia" value="si" checked={values.asistencia === "si"} onChange={changeHandler}/><label htmlFor="asistencia" className="texto-verde">Si, asistiré</label>
+                            <input type="radio" name="asistencia" value="si" checked={values.asistencia === "si"} onChange={changeHandler} disabled={datosInvitado.fechaConfirmacion !== ''}/><label htmlFor="asistencia" className="texto-verde">Si, asistiré</label>
                         </div>
                         <div className="radio">
-                            <input type="radio" name="asistencia" value="no" checked={values.asistencia === "no"} onChange={changeHandler}/><label htmlFor="asistencia" className="texto-verde">Lo siento, no podré asistir :c</label>
+                            <input type="radio" name="asistencia" value="no" checked={values.asistencia === "no"} onChange={changeHandler} disabled={datosInvitado.fechaConfirmacion !== ''}/><label htmlFor="asistencia" className="texto-verde">Lo siento, no podré asistir :c</label>
                         </div>
                     </div>
                     {datosInvitado.numeroInvitados > 1 && (<div className="select-container">
@@ -42,10 +43,10 @@ const FormularioConfirmacion = ({ datosInvitado, onConfirmacion }) => {
                     </div>)}
                     <div className="mensaje-container">
                         <div className="texto-verde">Puedes dejarnos un mensaje</div>
-                        <textarea id="mensaje" name="mensaje" placeholder="Deja aquí tu mensaje..." value={values.mensaje} onChange={changeHandler}></textarea>
+                        <textarea id="mensaje" name="mensaje" placeholder="Deja aquí tu mensaje..." value={values.mensaje} onChange={changeHandler}  disabled={datosInvitado.fechaConfirmacion !== ''}></textarea>
                     </div>
                 </div>
-                <Boton texto="Enviar" disabled={!isValid} onClickHandle={onSubmit}/>
+                <Boton texto="Enviar" disabled={!isValid  || datosInvitado.fechaConfirmacion !== ''} onClickHandle={onSubmit}/>
             </form>
         </div>
     );

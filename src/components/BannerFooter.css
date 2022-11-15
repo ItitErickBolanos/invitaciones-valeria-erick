@@ -36,4 +36,15 @@
     background-clip: text;
     text-fill-color: transparent;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media only screen and (min-width: 0) and (max-width: 743px) {
+
+    .logo-imagen {
+        width: 326px !important;
+        height: 111.05px !important;
+    }
 }

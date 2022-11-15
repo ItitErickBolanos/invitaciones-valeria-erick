@@ -3,3 +3,25 @@
     flex-direction: column;
     justify-content: center;
 }
+
+#alert-dialog-title {
+    text-align: center;
+}
+
+#alert-dialog-description {
+    font-family: 'Triforce';
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    text-align: center;
+    color: #174A21;
+}
+
+#alert-dialog-actions {
+    justify-content: center;
+}
+
+.MuiDialog-paper {
+    padding: 48px 18px;
+    background: #F4F0E7;
+}
