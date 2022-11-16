@@ -12,27 +12,57 @@ const Carrusel = ({
 }) => {
     /* const [ paginaMostrada, setPaginaMostrada ] = useState(0);
     const numeroPaginas = Math.floor(elementos.length / elementosMostrados); */
-    const [ elementosActuales, setElementosActuales ] = useState(children.slice(0, elementosMostrados));
+    const [ elementosActuales, setElementosActuales ] = useState(children.slice(elementosMostrados > 1 && tipo !== 'timeline' ? 0 : 2, elementosMostrados > 1 && tipo !== 'timeline' ? elementosMostrados : elementosMostrados + 2));
 
     const handleArrowClick = (direction) => {
         setElementosActuales((prev) => {
             if (direction === 'left') {
+                console.log(elementosActuales.map((elemento, index) => {
+                    const currentElementindex = children.findIndex(child => elemento.key === child.key);
+                    return {
+                        ...children[elementos[currentElementindex].prev], 
+                        props: 
+                            { 
+                                ...children[elementos[currentElementindex].prev].props, 
+                                className: tipo === 'timeline' && index !== 2 && elementosMostrados > 1 
+                                ? children[elementos[currentElementindex].prev].props + ' non-active' 
+                                : children[elementos[currentElementindex].prev].props
+                            }
+                        }
+                }))
                 return elementosActuales.map((elemento, index) => {
                     const currentElementindex = children.findIndex(child => elemento.key === child.key);
-                    return {...children[elementos[currentElementindex].prev], props: { ...children[elementos[currentElementindex].prev].props, className: tipo === 'timeline' && index !== 2 ? 'non-active' : null}}
+                    return {
+                        ...children[elementos[currentElementindex].prev], 
+                        props: 
+                            { 
+                                ...children[elementos[currentElementindex].prev].props, 
+                                className: tipo === 'timeline' && index !== 2 && elementosMostrados > 1 
+                                ? children[elementos[currentElementindex].prev].props.className + ' non-active' 
+                                : children[elementos[currentElementindex].prev].props.className
+                            }
+                        }
                 });
             } else {
                 return elementosActuales.map((elemento, index) => {
                     const currentElementindex = children.findIndex(child => elemento.key === child.key);
-                    return {...children[elementos[currentElementindex].next], props: { ...children[elementos[currentElementindex].next].props, className: tipo === 'timeline' && index !== 2 ? 'non-active' : null}};
+                    return {
+                        ...children[elementos[currentElementindex].next], 
+                        props: {
+                            ...children[elementos[currentElementindex].next].props, 
+                            className: tipo === 'timeline' && index !== 2 && elementosMostrados > 1 
+                            ? children[elementos[currentElementindex].next].props.className + ' non-active' 
+                            : children[elementos[currentElementindex].next].props.className
+                        }
+                    };
                 });
             }
         });
     };
 
     useEffect(() => {
-        setElementosActuales(children.slice(0, elementosMostrados));
-    }, [elementosMostrados, children])
+        setElementosActuales(children.slice(elementosMostrados > 1 && tipo !== 'timeline' ? 0 : 2, elementosMostrados > 1 && tipo !== 'timeline' ? elementosMostrados : elementosMostrados + 2));
+    }, [elementosMostrados, children, tipo]);
 
     return (
         <>
