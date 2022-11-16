@@ -14,6 +14,7 @@ import bodaReligiosa from '../images/boda-religiosa.svg';
 import heartIcon from '../images/heart-icon.svg';
 import './Timeline.css';
 import useWindowSize from '../hooks/useWindowSize';
+import { useEffect } from 'react'; 
 
 const Timeline = () => {
     const [ x ] = useWindowSize();
@@ -37,7 +38,8 @@ const Timeline = () => {
                 <Carrusel tipo={'timeline'} elementos={elementos} elementosMostrados={x > 1439 ? 5 : 1} >
                     { elementos.map(
                         (elemento, index) => {
-                            const middleElement = x > 1439 ? (Math.floor(5 / 2)) : 2;
+                            const middleElement = x > 1439 ? 2 : 0;
+                            console.log(middleElement)
 
                             return (
                                 <TimelineItem 

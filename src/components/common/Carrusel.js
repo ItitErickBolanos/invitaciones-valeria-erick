@@ -12,24 +12,19 @@ const Carrusel = ({
 }) => {
     /* const [ paginaMostrada, setPaginaMostrada ] = useState(0);
     const numeroPaginas = Math.floor(elementos.length / elementosMostrados); */
-    const [ elementosActuales, setElementosActuales ] = useState(children.slice(elementosMostrados > 1 && tipo !== 'timeline' ? 0 : 2, elementosMostrados > 1 && tipo !== 'timeline' ? elementosMostrados : elementosMostrados + 2));
+    const [ elementosActuales, setElementosActuales ] = useState(
+        children.slice(elementosMostrados > 1 && tipo === 'timeline' 
+            ? 0 
+            : 2, 
+            elementosMostrados > 1 && tipo === 'timeline' 
+            ? elementosMostrados 
+            : elementosMostrados + 2
+        )
+    );
 
     const handleArrowClick = (direction) => {
         setElementosActuales((prev) => {
             if (direction === 'left') {
-                console.log(elementosActuales.map((elemento, index) => {
-                    const currentElementindex = children.findIndex(child => elemento.key === child.key);
-                    return {
-                        ...children[elementos[currentElementindex].prev], 
-                        props: 
-                            { 
-                                ...children[elementos[currentElementindex].prev].props, 
-                                className: tipo === 'timeline' && index !== 2 && elementosMostrados > 1 
-                                ? children[elementos[currentElementindex].prev].props + ' non-active' 
-                                : children[elementos[currentElementindex].prev].props
-                            }
-                        }
-                }))
                 return elementosActuales.map((elemento, index) => {
                     const currentElementindex = children.findIndex(child => elemento.key === child.key);
                     return {
@@ -39,7 +34,9 @@ const Carrusel = ({
                                 ...children[elementos[currentElementindex].prev].props, 
                                 className: tipo === 'timeline' && index !== 2 && elementosMostrados > 1 
                                 ? children[elementos[currentElementindex].prev].props.className + ' non-active' 
-                                : children[elementos[currentElementindex].prev].props.className
+                                : children[elementos[currentElementindex].prev].props.className 
+                                    ? children[elementos[currentElementindex].prev].props.className.replaceAll('non-active', '') 
+                                    : null
                             }
                         }
                 });
@@ -52,7 +49,9 @@ const Carrusel = ({
                             ...children[elementos[currentElementindex].next].props, 
                             className: tipo === 'timeline' && index !== 2 && elementosMostrados > 1 
                             ? children[elementos[currentElementindex].next].props.className + ' non-active' 
-                            : children[elementos[currentElementindex].next].props.className
+                            : children[elementos[currentElementindex].next].props.className 
+                                    ? children[elementos[currentElementindex].next].props.className.replaceAll('non-active', '') 
+                                    : null
                         }
                     };
                 });
@@ -61,7 +60,14 @@ const Carrusel = ({
     };
 
     useEffect(() => {
-        setElementosActuales(children.slice(elementosMostrados > 1 && tipo !== 'timeline' ? 0 : 2, elementosMostrados > 1 && tipo !== 'timeline' ? elementosMostrados : elementosMostrados + 2));
+        setElementosActuales(
+            children.slice(
+                elementosMostrados > 1 && tipo === 'timeline' 
+                ? 0 
+                : 2,
+                elementosMostrados > 1 && tipo === 'timeline' 
+                 ? elementosMostrados 
+                 : elementosMostrados + 2));
     }, [elementosMostrados, children, tipo]);
 
     return (
