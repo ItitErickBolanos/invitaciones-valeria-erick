@@ -60,6 +60,7 @@ const Carrusel = ({
     };
 
     useEffect(() => {
+        console.log(children)
         setElementosActuales(
             children.slice(
                 elementosMostrados > 1 && tipo === 'timeline' 

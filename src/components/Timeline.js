@@ -38,8 +38,7 @@ const Timeline = () => {
                 <Carrusel tipo={'timeline'} elementos={elementos} elementosMostrados={x > 1439 ? 5 : 1} >
                     { elementos.map(
                         (elemento, index) => {
-                            const middleElement = x > 1439 ? 2 : 0;
-                            console.log(middleElement)
+                            const middleElement = 2;
 
                             return (
                                 <TimelineItem 
