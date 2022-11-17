@@ -57,5 +57,9 @@
 }
 
 .hotel-url {
+    font-family: 'Chapman';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
     color: #D14681;
 }

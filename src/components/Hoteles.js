@@ -19,7 +19,7 @@ const Hoteles = () => {
                     <div className="descripcion-hotel">Habitación sencilla por noche: $1,134.00 MXN</div>
                     <div className="descripcion-hotel">Habitación doble por noche: $1,242.00 MXN</div>
                     <div className="telefono-hotel">(833) 230 4444</div>
-                    <a className="hotel-url" href='https://hinglaterra.com.mx' target="_blank" rel="noreferrer">hinglaterra.com.mx</a>
+                    <a className="hotel-url" href='http://hinglaterra.com.mx' target="_blank" rel="noreferrer">hinglaterra.com.mx</a>
                 </div>
                 <div className="hotel">
                     <div className="titulo-hotel">City Express Plus</div>
